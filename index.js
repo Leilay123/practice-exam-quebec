@@ -74,8 +74,8 @@ const purchases = [
 // #1 // 
 
 /**
- * I - function getNumberEntries, takes an objecy
- * O -
+ * I - function getNumberEntries, takes an object
+ * O - return an array of subarracys
  * C -
  * E -
  */
@@ -96,7 +96,7 @@ function getNumberEntries(object){
 // #2 // 
 
 /**
- * I -
+ * I - addKeyValuePairs
  * O -
  * C -
  * E -
@@ -145,14 +145,14 @@ const accumulateString = (array) => {
     if (!purchase.product) return acc; // skip if product is missing
     
     const words = purchase.product.split(' '); // split product description into words
-    const index = purchase.quantity - 1; // quantity is 1-based, arrays are 0-based
+    const index = purchase.quantity - 1; 
     
     if (index >= 0 && index < words.length) {
-      acc += words[index]; // add the corresponding word to the accumulator
+      acc += words[index];
     }
     
     return acc;
-  }, ''); // start with empty string
+  }, ''); // empty string
 };
 
 
@@ -166,18 +166,18 @@ const accumulateString = (array) => {
  */
 
 const findProduct = (array, product, output=[]) => {
-   // Base case: if array is empty, return [null, null]
+   // Base case
    if (array.length === 0) {
     return [null, null];
   }
 
-  // Check the first element in the array
+  // recursion
   const current = array[0];
   if (current.product === product) {
     return [current.product, current.category];
   }
 
-  // Recursive call with the rest of the array
+ 
   return findProduct(array.slice(1), product);
 };
 
@@ -186,9 +186,9 @@ const findProduct = (array, product, output=[]) => {
 // #7 //
 
 /**
- * I -
- * O -
- * C -
+ * I - filterByReviewLength takes an array (of purhase objects)
+ * O - return an new array with only purchases that have an rewvie length property greater than 35
+ * C -use .filter
  * E -
  */
 
